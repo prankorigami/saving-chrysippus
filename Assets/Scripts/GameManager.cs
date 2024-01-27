@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float startTime;
     [SerializeField] private int score;
     [SerializeField] List<GameObject> minigamePrefs;
+    GameObject currentMinigameObject;
     MinigameController currentMinigame;
 
     [SerializeField] RectTransform timerBar;
@@ -43,14 +44,8 @@ public class GameManager : MonoBehaviour
     void PickMinigame()
     {
         // Randomly choose a game from the list and instantiate it
-        int gamePickedIdx = Random.Range( 0, minigamePrefs.Count );
-        currentMinigame = Instantiate( minigamePrefs[ gamePickedIdx ] ).GetComponent<MinigameController>();
-
         // Play the sprite spawning animation to show the enemy approaching
-        StartCoroutine(WaitForAnimationToFinish());
-
-        // Start the game
-        currentMinigame.GameStart(0);
+        StartCoroutine(WaitForAnimationToFinish(Random.Range(0, minigamePrefs.Count)));
     }
 
     void OnMinigameEnd( bool gameResult )
@@ -69,7 +64,7 @@ public class GameManager : MonoBehaviour
         time += gameResult ? 1f : -1f;
 
         // Destroy the object(s) associated with the previous minigame
-        Destroy(currentMinigame);
+        Destroy(currentMinigameObject);
         currentMinigame = null;
 
         // Pick the next minigame if the game isnt done
@@ -88,8 +83,14 @@ public class GameManager : MonoBehaviour
         // insert code here to run when the game ends
     }
 
-    IEnumerator WaitForAnimationToFinish()
+    IEnumerator WaitForAnimationToFinish(int gamePickedIdx)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
+
+        currentMinigameObject = Instantiate(minigamePrefs[gamePickedIdx]);
+        currentMinigame = currentMinigameObject.GetComponent<MinigameController>();
+
+        // Start the game
+        currentMinigame.GameStart(0);
     }
 }
