@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float time;
     private float startTime;
     [SerializeField] private int score;
-    List<GameObject> minigamePrefs = new List<GameObject>();
+    [SerializeField] List<GameObject> minigamePrefs = new List<GameObject>();
     MinigameController currentMinigame;
 
     [SerializeField] RectTransform timerBar;
     [SerializeField] RectTransform timerTransform;
+
+    [SerializeField] Vector3 figPlacementPosition;
+    [SerializeField] GameObject figPrefab;
 
     private void Start()
     {
@@ -27,8 +30,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         time -= Time.deltaTime;
-        Debug.Log(Vector3.up * (Mathf.Lerp(0, timerBar.sizeDelta.y, time / startTime)));
-        timerTransform.anchoredPosition = Vector3.up * (Mathf.Lerp(0, timerBar.sizeDelta.y, time / startTime));
+        timerTransform.anchoredPosition = Vector3.up * (Mathf.Lerp(398, 12, time / startTime)) + new Vector3(-42, 0, 0);
     }
 
     void PickMinigame()
@@ -36,9 +38,10 @@ public class GameManager : MonoBehaviour
         // Randomly choose a game from the list and instantiate it
         int gamePickedIdx = Random.Range( 0, minigamePrefs.Count );
         currentMinigame = Instantiate( minigamePrefs[ gamePickedIdx ] ).GetComponent<MinigameController>();
-
+        Debug.Log("penis");
         // Play the sprite spawning animation to show the enemy approaching
-
+        StartCoroutine(WaitForAnimationToFinish());
+        Debug.Log("penis2");
         // Start the game
         currentMinigame.GameStart();
     }
@@ -46,10 +49,21 @@ public class GameManager : MonoBehaviour
     void OnMinigameEnd( bool gameResult )
     {
         // Change the Score based on the result of the game
-        score += gameResult ? 1 : 0;
+        if(gameResult)
+        {
+            score++;
+            RectTransform newFigIcon = Instantiate(figPrefab).GetComponent<RectTransform>();
+            newFigIcon.anchoredPosition = figPlacementPosition;
+            figPlacementPosition -= figPlacementPosition.x == -364 ? new Vector3(-27, 16, 0) : new Vector3(27, 16, 0);
+        }
         time += gameResult ? 1f : -1f;
 
         // Pick the next minigame
         PickMinigame();
+    }
+
+    IEnumerator WaitForAnimationToFinish()
+    {
+        yield return new WaitForSeconds(5);
     }
 }
