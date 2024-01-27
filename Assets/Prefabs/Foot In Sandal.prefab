@@ -218,9 +218,9 @@ MonoBehaviour:
   - 2
   sandal: {fileID: 6208450395974701287}
   foot: {fileID: 6208450395412826756}
-  xFootBounds: {x: -4.6, y: 1.7}
+  xFootBounds: {x: -4.6, y: -1.7}
   yBounds: {x: -1.5, y: 1.5}
-  xShoeBounds: {x: 0.08, y: 4}
+  xShoeBounds: {x: 1, y: 4}
 --- !u!1 &6208450395412826756
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6208450395412826756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.58, y: -0.85, z: -1}
+  m_LocalPosition: {x: -1.58, y: 0.23, z: -1}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -474,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6208450395974701287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.95, y: -0.05, z: -1}
+  m_LocalPosition: {x: 3.59, y: 0.36, z: -1}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
