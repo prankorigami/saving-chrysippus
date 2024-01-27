@@ -388,8 +388,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aba7d7471624114ca581914174af217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
+  time: 60
   score: 0
+  minigamePrefs:
+  - {fileID: 6783183339472124003, guid: 3934ee35646bc5645bdd99ad16ceff0d, type: 3}
 --- !u!4 &1133132780
 Transform:
   m_ObjectHideFlags: 0
