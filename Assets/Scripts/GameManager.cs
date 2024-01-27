@@ -8,12 +8,19 @@ public class GameManager : MonoBehaviour
     public class MiniEndEvent : UnityEvent<bool> { }
     public static MiniEndEvent minigameEnds = new();
 
+    public static UnityEvent animationEnd = new();
+
     [SerializeField] private float time;
 
     private float startTime;
     [SerializeField] private int score;
     [SerializeField] List<GameObject> minigamePrefs;
+    [SerializeField] List<Sprite> minigameEnemies;
+    [SerializeField] GameObject baseEnemy;
+    int gamePicked = -1;
     GameObject currentMinigameObject;
+    GameObject newEnemy;
+    [SerializeField] GameObject background;
     MinigameController currentMinigame;
 
     [SerializeField] RectTransform timerBar;
@@ -27,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         startTime = time;
         minigameEnds.AddListener(OnMinigameEnd);
+        animationEnd.AddListener(OnAnimationFinish);
         PickMinigame();
     }
 
@@ -38,15 +46,19 @@ public class GameManager : MonoBehaviour
         // Win Condition
         if( time <= 0 )
         {
-            // currentMinigame.LoseGame();
+            currentMinigame.LoseGame();
         }
     }
 
     void PickMinigame()
     {
-        // Randomly choose a game from the list and instantiate it
+        // Randomly choose a game from the list
+        gamePicked = Random.Range(0, minigamePrefs.Count);
+
         // Play the sprite spawning animation to show the enemy approaching
-        StartCoroutine(WaitForAnimationToFinish(Random.Range(0, minigamePrefs.Count)));
+        background.GetComponent<Animator>().Play("ForwardMoveAnimation");
+        newEnemy = Instantiate(baseEnemy, new Vector3(0f, -0.69f, 0f), Quaternion.identity);
+        newEnemy.GetComponent<SpriteRenderer>().sprite = minigameEnemies[gamePicked];
     }
 
     void OnMinigameEnd( bool gameResult )
@@ -67,7 +79,9 @@ public class GameManager : MonoBehaviour
 
         // Destroy the object(s) associated with the previous minigame
         Destroy(currentMinigameObject);
+        newEnemy.GetComponent<Animator>().Play("EnemyDie");
         currentMinigame = null;
+        gamePicked = -1;
 
         // Pick the next minigame if the game isnt done
         if ( time > 0 )
@@ -85,11 +99,9 @@ public class GameManager : MonoBehaviour
         // insert code here to run when the game ends
     }
 
-    IEnumerator WaitForAnimationToFinish(int gamePickedIdx)
+    void OnAnimationFinish()
     {
-        yield return new WaitForSeconds(2);
-
-        currentMinigameObject = Instantiate(minigamePrefs[gamePickedIdx]);
+        currentMinigameObject = Instantiate(minigamePrefs[gamePicked]);
         currentMinigame = currentMinigameObject.GetComponent<MinigameController>();
 
         // Start the game
