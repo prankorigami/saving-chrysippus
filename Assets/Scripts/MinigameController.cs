@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MinigameController : MonoBehaviour
 {
+    public bool isActive = false;
+
     // Update is called once per frame
     void Update()
     {
