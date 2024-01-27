@@ -14,22 +14,21 @@ public class GameManager : MonoBehaviour
     List<GameObject> minigamePrefs = new List<GameObject>();
     MinigameController currentMinigame;
 
-    [SerializeField] GameObject timerIcon;
-    RectTransform timerTransform;
+    [SerializeField] RectTransform timerBar;
+    [SerializeField] RectTransform timerTransform;
 
     private void Start()
     {
         startTime = time;
-        timerTransform = timerIcon.GetComponent<RectTransform>();
         minigameEnds.AddListener(OnMinigameEnd);
         PickMinigame();
     }
 
     private void Update()
     {
-        Debug.Log(startTime);
         time -= Time.deltaTime;
-        timerTransform.position = Vector3.up * ((time / startTime) - 170);
+        Debug.Log(Vector3.up * (Mathf.Lerp(0, timerBar.sizeDelta.y, time / startTime)));
+        timerTransform.anchoredPosition = Vector3.up * (Mathf.Lerp(0, timerBar.sizeDelta.y, time / startTime));
     }
 
     void PickMinigame()
