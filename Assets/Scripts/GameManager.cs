@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static MiniEndEvent minigameEnds = new();
 
     [SerializeField] private float time;
+
     private float startTime;
     [SerializeField] private int score;
     [SerializeField] List<GameObject> minigamePrefs;
@@ -54,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     void OnMinigameEnd( bool gameResult )
     {
+        Debug.Log(gameResult);
+
         // Change the Score based on the result of the game
         if(gameResult)
         {
