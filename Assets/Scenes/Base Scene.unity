@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 712516506}
   - component: {fileID: 712516505}
   m_Layer: 5
-  m_Name: ProgressBar
+  m_Name: Progress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1097604148}
   - component: {fileID: 1097604147}
   m_Layer: 5
-  m_Name: TimerMarker
+  m_Name: Timer Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 1133132780}
   - component: {fileID: 1133132779}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 1744391272}
   - component: {fileID: 1744391271}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
