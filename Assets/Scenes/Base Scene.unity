@@ -395,8 +395,9 @@ MonoBehaviour:
   - {fileID: 6783183339472124003, guid: 3934ee35646bc5645bdd99ad16ceff0d, type: 3}
   timerBar: {fileID: 712516504}
   timerTransform: {fileID: 1097604146}
-  figPlacementPosition: {x: -364, y: 194, z: 0}
+  figPlacementPosition: {x: 24, y: -24, z: 0}
   figPrefab: {fileID: 604984591992166770, guid: d51cf9d48d9fa204986845c6e85243fc, type: 3}
+  canvas: {fileID: 2008435955}
 --- !u!4 &1133132780
 Transform:
   m_ObjectHideFlags: 0

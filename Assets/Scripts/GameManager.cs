@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Vector3 figPlacementPosition;
     [SerializeField] GameObject figPrefab;
+    [SerializeField] Transform canvas;
 
     private void Start()
     {
@@ -57,9 +58,10 @@ public class GameManager : MonoBehaviour
         {
             score++;
             // Add a fig icon to show your score
-            RectTransform newFigIcon = Instantiate(figPrefab).GetComponent<RectTransform>();
-            newFigIcon.anchoredPosition = figPlacementPosition;
-            figPlacementPosition -= figPlacementPosition.x == -364 ? new Vector3(-27, 16, 0) : new Vector3(27, 16, 0);
+            GameObject newFig = Instantiate(figPrefab);
+            newFig.transform.SetParent(canvas);
+            newFig.GetComponent<RectTransform>().anchoredPosition = figPlacementPosition;
+            figPlacementPosition -= new Vector3(0, 10, 0);
         }
         time += gameResult ? 1f : -1f;
 
