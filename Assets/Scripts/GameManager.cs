@@ -6,12 +6,12 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public class MiniEndEvent : UnityEvent<bool> { }
-    public static MiniEndEvent minigameEnds = new MiniEndEvent();
+    public static MiniEndEvent minigameEnds = new();
 
     [SerializeField] private float time;
     private float startTime;
     [SerializeField] private int score;
-    [SerializeField] List<GameObject> minigamePrefs = new List<GameObject>();
+    [SerializeField] List<GameObject> minigamePrefs;
     MinigameController currentMinigame;
 
     [SerializeField] RectTransform timerBar;
@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
     {
         time -= Time.deltaTime;
         timerTransform.anchoredPosition = Vector3.up * (Mathf.Lerp(398, 12, time / startTime)) + new Vector3(-42, 0, 0);
+
+        // Win Condition
+        if( time <= 0 )
+        {
+            // currentMinigame.LoseGame();
+        }
     }
 
     void PickMinigame()
@@ -38,10 +44,10 @@ public class GameManager : MonoBehaviour
         // Randomly choose a game from the list and instantiate it
         int gamePickedIdx = Random.Range( 0, minigamePrefs.Count );
         currentMinigame = Instantiate( minigamePrefs[ gamePickedIdx ] ).GetComponent<MinigameController>();
-        Debug.Log("penis");
+
         // Play the sprite spawning animation to show the enemy approaching
         StartCoroutine(WaitForAnimationToFinish());
-        Debug.Log("penis2");
+
         // Start the game
         currentMinigame.GameStart();
     }
@@ -52,14 +58,27 @@ public class GameManager : MonoBehaviour
         if(gameResult)
         {
             score++;
+            // Add a fig icon to show your score
             RectTransform newFigIcon = Instantiate(figPrefab).GetComponent<RectTransform>();
             newFigIcon.anchoredPosition = figPlacementPosition;
             figPlacementPosition -= figPlacementPosition.x == -364 ? new Vector3(-27, 16, 0) : new Vector3(27, 16, 0);
         }
         time += gameResult ? 1f : -1f;
 
-        // Pick the next minigame
-        PickMinigame();
+        // Pick the next minigame if the game isnt done
+        if( time > 0 )
+        {
+            PickMinigame();
+        }
+        else
+        {
+            EndGame();
+        }
+    }
+
+    void EndGame()
+    {
+        // insert code here to run when the game ends
     }
 
     IEnumerator WaitForAnimationToFinish()
