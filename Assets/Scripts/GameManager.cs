@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitForAnimationToFinish());
 
         // Start the game
-        currentMinigame.GameStart();
+        currentMinigame.GameStart(0);
     }
 
     void OnMinigameEnd( bool gameResult )
@@ -65,8 +65,12 @@ public class GameManager : MonoBehaviour
         }
         time += gameResult ? 1f : -1f;
 
+        // Destroy the object(s) associated with the previous minigame
+        Destroy(currentMinigame);
+        currentMinigame = null;
+
         // Pick the next minigame if the game isnt done
-        if( time > 0 )
+        if ( time > 0 )
         {
             PickMinigame();
         }
