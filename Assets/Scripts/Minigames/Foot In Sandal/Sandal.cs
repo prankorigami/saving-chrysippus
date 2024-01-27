@@ -5,10 +5,10 @@ using UnityEngine;
 public class Sandal : MonoBehaviour
 {
     [SerializeField] private MinigameController controller;
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.tag);
-        if(collision.gameObject.tag == "Feet" && !collision.gameObject.GetComponent<FootMovement>().IsDragging())
+        if(collision.gameObject.tag == "Feet" && !collision.gameObject.transform.parent.gameObject.GetComponent<FootMovement>().IsDragging())
         {
             controller.WinGame();
         }

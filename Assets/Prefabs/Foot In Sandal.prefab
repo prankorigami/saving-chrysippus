@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5866423872772488234}
   - component: {fileID: 3107352960572816280}
-  - component: {fileID: 3983688734108357839}
+  - component: {fileID: 1325312945206436907}
   m_Layer: 0
   m_Name: FootCollider
   m_TagString: Feet
@@ -59,7 +59,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
---- !u!50 &3983688734108357839
+--- !u!50 &1325312945206436907
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -73,13 +73,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &3414940557401647486
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,8 +217,10 @@ MonoBehaviour:
   - 3
   - 2
   sandal: {fileID: 6208450395974701287}
-  xBounds: {x: 0, y: 0}
-  yBounds: {x: 0, y: 0}
+  foot: {fileID: 6208450395412826756}
+  xFootBounds: {x: -4.6, y: 1.7}
+  yBounds: {x: -1.5, y: 1.5}
+  xShoeBounds: {x: 0.08, y: 4}
 --- !u!1 &6208450395412826756
 GameObject:
   m_ObjectHideFlags: 0

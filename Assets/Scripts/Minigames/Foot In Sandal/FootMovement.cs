@@ -19,7 +19,7 @@ public class FootMovement : MonoBehaviour
     private void OnMouseDown()
     {
         dragging = true;
-        offset = GetMousePosition() - (Vector2)transform.position;
+        offset = GetMousePosition() - (Vector2) transform.position;
     }
 
     private void OnMouseUp()
