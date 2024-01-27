@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ComedyShow : MinigameController
+{
+    [SerializeField] private GameObject[] hands;
+    //[SerializeField] private Vector2 xBounds;
+    //[SerializeField] private Vector2 yBounds;
+
+    // Sets up any randomized aspects of the mini-game here that might be
+    // inconsistent with how the prefab spawns.
+    public override void GameStart(int difficulty)
+    {
+        // Important to include: allows the base class to set up the minigame timer.
+        base.GameStart(difficulty);
+        for (int i = 0; i < hands.Length; i++)
+        {
+            hands[i].transform.localPosition = new Vector3(1.5f*(Random.Range(i+0.1f, i + 0.9f)*2f/hands.Length - 1f), Random.Range(-0.35f, -1.4f), -1f);
+        }
+    }
+
+    // Runs primary game logic, though this can also be deferred to additional scripts.
+    protected override void Update()
+    {
+        // Important to include: allows the 
+        base.Update();
+    }
+}
