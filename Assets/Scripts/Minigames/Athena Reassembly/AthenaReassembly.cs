@@ -26,8 +26,6 @@ public class AthenaReassembly : MinigameController
         piecePos.x = Random.Range(xBounds.x, xBounds.y);
         piecePos.y = Random.Range(yBounds.x, yBounds.y);
         body.transform.position = piecePos;
-
-
     }
 
     // Runs primary game logic, though this can also be deferred to additional scripts.
