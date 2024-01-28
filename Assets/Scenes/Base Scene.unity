@@ -396,11 +396,13 @@ MonoBehaviour:
   - {fileID: 6023541599744727599, guid: 5fd25c762f227ac4cb935623b27d2173, type: 3}
   - {fileID: 6783183339472124003, guid: 2236e59346a53c849ae255979d5b65df, type: 3}
   - {fileID: 6783183339472124003, guid: 26583b161e9fc1a45b27c61408aa9dc2, type: 3}
+  - {fileID: 5717547062258405454, guid: b7978c4410d07d94891e58ea9ef4ef6f, type: 3}
   minigameEnemies:
   - {fileID: 21300000, guid: 2d7fbd59780f6fb47b9ccbc967362854, type: 3}
   - {fileID: 21300000, guid: d4355eee91c87b140a7501a959cf6fe0, type: 3}
   - {fileID: 21300000, guid: 718369dc61fabc14787f79f504943736, type: 3}
   - {fileID: 21300000, guid: bc7c6eb3b9a5e1a478264dd2942aa327, type: 3}
+  - {fileID: 21300000, guid: 4da9e28cd48371344826e5c54d21ccfd, type: 3}
   baseEnemy: {fileID: 1666009776811059357, guid: 01adcc9f7a4163e40abb381fa7ad33de, type: 3}
   background: {fileID: 2113886527}
   timerBar: {fileID: 712516504}

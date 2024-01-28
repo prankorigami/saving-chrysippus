@@ -22,7 +22,10 @@ public class WinOnSmash : MonoBehaviour
         if (Input.GetKeyDown("right") && lastLeft && punchCounter < 10)
             HitSlab();
         if (punchCounter >= 10)
-            anim.Play("breakSlab");         
+        {
+            anim.Play("breakSlab");
+            controller.StopTimer();
+        }
     }
 
     private void HitSlab()
