@@ -9,7 +9,23 @@ public class HandClick : MonoBehaviour
     [SerializeField] private Sprite hand_alt;
     [SerializeField] private GameObject tomatoPrefab;
     private bool clicked = false;
-    
+    private float tomatoTimer = -1;
+    private Vector3 tomatoDirection = Vector3.zero;
+    private GameObject tomato = null;
+
+    private void Update()
+    {
+        if (tomato != null && tomatoTimer > 0) {
+            tomatoTimer -= Time.deltaTime;
+            tomato.transform.position += Time.deltaTime * tomatoDirection;
+            tomato.transform.Rotate(0f, 0f, 630f*Time.deltaTime);
+            if (tomatoTimer < 0) {
+                GameObject.Destroy(tomato);
+                tomato = null;
+                tomatoDirection = Vector3.zero;
+            }
+        }
+    }
     private void OnMouseDown()
     {
         if (!clicked)
@@ -20,7 +36,10 @@ public class HandClick : MonoBehaviour
         }
     }
     private void throwTomato() {
-        Instantiate(tomatoPrefab, this.transform);
+        tomato = Instantiate(tomatoPrefab, this.transform);
+        tomatoDirection = new Vector3(0f, 1.3f, 0f) - this.transform.position;
+        tomatoDirection.z = 0f;
+        tomatoTimer = 1f;
         // make a prefab
     }
 }
