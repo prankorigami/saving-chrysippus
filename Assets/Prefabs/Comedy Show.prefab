@@ -910,6 +910,7 @@ MonoBehaviour:
   - {fileID: 4898825043292332009}
   - {fileID: 6047245326994693022}
   jester: {fileID: 8300000, guid: bd91bb12350325b4eabc8695a361c67b, type: 3}
+  controller: {fileID: 6000627600795510477}
 --- !u!82 &3409239164805158770
 AudioSource:
   m_ObjectHideFlags: 0

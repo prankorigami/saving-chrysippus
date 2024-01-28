@@ -48,8 +48,8 @@ public class ComedyShow : MinigameController
         numTomatos--;
         if (numTomatos <= 0) {
             // maybe do an animation, via state and update
-            // StopTimer() // @pranav
-            GetComponent<AudioSource>().Stop();
+            StopTimer(); // @pranav
+            this.GetComponent<AudioSource>().Stop();
             winTimer = 1f;
         }
     }
