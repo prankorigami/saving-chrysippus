@@ -91,18 +91,20 @@ public class GameManager : MonoBehaviour
                 currentDifficulty++;
             }
 
-            switch(currentDifficulty)
-            {
-                case 0:
-                    time += 3f;
-                    break;
-                case 1:
-                    time += 2f;
-                    break;
-                case 2:
-                    time += 1f;
-                    break;
-            }
+            time += 3;
+
+            //switch(currentDifficulty)
+            //{
+            //    case 0:
+            //        time += 3f;
+            //        break;
+            //    case 1:
+            //        time += 2f;
+            //        break;
+            //    case 2:
+            //        time += 1f;
+            //        break;
+            //}
         } 
         else
         {
