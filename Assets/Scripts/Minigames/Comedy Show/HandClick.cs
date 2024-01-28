@@ -50,8 +50,7 @@ public class HandClick : MonoBehaviour
         GetComponent<AudioSource>().clip = wooosh;
         GetComponent<AudioSource>().Play();
         tomato = Instantiate(tomatoPrefab, this.transform);
-        tomatoDirection = new Vector3(-0.4f + 0.8f*Random.value, 0.5f + 0.7f*Random.value, 0f) - this.transform.position;
-        tomatoDirection.z = 0f;
+        tomatoDirection = new Vector3(-0.4f + 0.8f*Random.value, 0.5f + 0.7f*Random.value, -2f) - this.transform.position;
         tomatoTimer = 1f;
         // make a prefab
     }

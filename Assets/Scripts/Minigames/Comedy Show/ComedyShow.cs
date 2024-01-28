@@ -7,7 +7,7 @@ public class ComedyShow : MinigameController
 {
     [SerializeField] private GameObject[] hands;
     [SerializeField] private AudioClip jester;
-    public int numTomatos = 0;
+    private int numTomatos = 0;
     private float winTimer = -1f;
     //[SerializeField] private Vector2 xBounds;
     //[SerializeField] private Vector2 yBounds;
