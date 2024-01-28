@@ -17,6 +17,7 @@ public class HandClick : MonoBehaviour
     private GameObject tomato = null;
     [SerializeField] private AudioClip splat;
     [SerializeField] private AudioClip wooosh;
+    public ComedyShow game;
 
     private void Update()
     {
@@ -31,6 +32,7 @@ public class HandClick : MonoBehaviour
                 tomato.GetComponentInChildren<SpriteRenderer>().sprite = tomato_splat;
                 // todo: add splat
                 GetComponent<AudioSource>().PlayOneShot(splat);
+                game.splat();
             }
         }
     }
