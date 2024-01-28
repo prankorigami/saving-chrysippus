@@ -11,9 +11,9 @@ public class TragedyMan : MonoBehaviour
     [SerializeField] public Animator footAnimator;
     [SerializeField] public GameObject feather;
     [SerializeField] public float movementspeed;
-    [SerializeField] public MinigameController controller;
 
     bool killed = false;
+    bool armed = false;
 
     private void Awake()
     {
@@ -27,17 +27,19 @@ public class TragedyMan : MonoBehaviour
         //animator.SetBool("Armed", false);  
 
         movementVector.x = Input.GetAxisRaw("Horizontal");
-        if (movementVector.x == 0 )
+        if (movementVector.x == 0)
         {
             animator.SetBool("Moving", false);
-        } else
+        }
+        else
         {
             animator.SetBool("Moving", true);
         }
         if (movementVector.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
-        } else if(movementVector.x > 0)
+        }
+        else if (movementVector.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
@@ -48,20 +50,18 @@ public class TragedyMan : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Knife")
+        if (collision.gameObject.tag == "Knife")
         {
             Destroy(collision.gameObject);
             animator.SetBool("Armed", true);
+            armed = true;
         }
-        if(collision.gameObject.tag == "Feet" && !killed)
+        if (collision.gameObject.tag == "Feet" && !killed && armed)
         {
             killed = true;
             footAnimator.SetBool("Alive", false);
             Destroy(feather);
             comedyAnimator.SetBool("SAD", true);
-            controller.StopTimer();
         }
     }
-
-
 }
