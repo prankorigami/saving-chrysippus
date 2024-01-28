@@ -12,6 +12,9 @@ public class TragedyMan : MonoBehaviour
     [SerializeField] public GameObject feather;
     [SerializeField] public float movementspeed;
     [SerializeField] MinigameController controller;
+    [SerializeField] AudioSource step;
+    [SerializeField] AudioSource collect;
+    [SerializeField] AudioSource die;
 
     bool killed = false;
     bool armed = false;
@@ -35,6 +38,7 @@ public class TragedyMan : MonoBehaviour
         else
         {
             animator.SetBool("Moving", true);
+            step.Play();
         }
         if (movementVector.x < 0)
         {
@@ -56,6 +60,7 @@ public class TragedyMan : MonoBehaviour
             Destroy(collision.gameObject);
             animator.SetBool("Armed", true);
             armed = true;
+            collect.Play();
         }
         if (collision.gameObject.tag == "Feet" && !killed && armed)
         {
@@ -64,6 +69,7 @@ public class TragedyMan : MonoBehaviour
             Destroy(feather);
             comedyAnimator.SetBool("SAD", true);
             controller.StopTimer();
+            die.Play();
         }
     }
 }

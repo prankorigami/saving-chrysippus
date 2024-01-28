@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioSource gameOverSound;
     [SerializeField] AudioSource winSound;
-    [SerializeField] AudioSource mainTheme;
     bool gameOver;
 
     private void Start()
@@ -126,7 +125,6 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        mainTheme.Stop();
         gameOverSound.Play();
     }
 
