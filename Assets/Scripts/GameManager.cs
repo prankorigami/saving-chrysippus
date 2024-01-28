@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
             newFig.GetComponent<RectTransform>().anchoredPosition = figPlacementPosition;
             figPlacementPosition -= new Vector3(0, 10, 0);
 
-            if(score > difficultyBoundaries[currentDifficulty])
+            if(currentDifficulty < difficultyBoundaries.Count && score > difficultyBoundaries[currentDifficulty])
             {
                 currentDifficulty++;
             }
@@ -84,13 +84,13 @@ public class GameManager : MonoBehaviour
             switch(currentDifficulty)
             {
                 case 0:
-                    time++;
+                    time += 3f;
                     break;
                 case 1:
-                    time += 1.5f;
+                    time += 2f;
                     break;
                 case 2:
-                    time += 2f;
+                    time += 1f;
                     break;
             }
         } 

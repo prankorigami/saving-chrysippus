@@ -216,7 +216,7 @@ MonoBehaviour:
   timesToBeat:
   - 5
   - 3
-  - 2
+  - 1
   sandal: {fileID: 6208450395974701287}
   foot: {fileID: 6208450395412826756}
   xFootBounds: {x: -4.6, y: -1.7}

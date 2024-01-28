@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48ca7457548ed8647bc199b61a135137, type: 3}
   m_Color: {r: 1, g: 0.9048315, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -248,9 +248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 5559583965388020463}
   timesToBeat:
-  - 7
-  - 5.5
-  - 4
+  - 5
+  - 3
+  - 1
   circleToClick: {fileID: 6486715531666059034}
   xBounds: {x: -1.25, y: 1.25}
   yBounds: {x: -1.25, y: 1.25}
