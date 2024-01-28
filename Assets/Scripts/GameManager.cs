@@ -33,8 +33,14 @@ public class GameManager : MonoBehaviour
     int currentDifficulty = 0;
     [SerializeField] List<int> difficultyBoundaries;
 
+    [SerializeField] AudioSource gameOverSound;
+    [SerializeField] AudioSource winSound;
+    [SerializeField] AudioSource mainTheme;
+    bool gameOver;
+
     private void Start()
     {
+        gameOver = false;
         startTime = time;
         minigameEnds.AddListener(OnMinigameEnd);
         animationEnd.AddListener(OnAnimationFinish);
@@ -47,9 +53,10 @@ public class GameManager : MonoBehaviour
         timerTransform.anchoredPosition = Vector3.up * (Mathf.Lerp(398, 12, time / startTime)) + new Vector3(-42, 0, 0);
 
         // Win Condition
-        if( time <= 0 )
+        if( time <= 0 && !gameOver )
         {
             currentMinigame.LoseGame();
+            gameOver = true;
         }
     }
 
@@ -69,6 +76,7 @@ public class GameManager : MonoBehaviour
         // Change the Score based on the result of the game
         if(gameResult)
         {
+            winSound.Play();
             score++;
             // Add a fig icon to show your score
             GameObject newFig = Instantiate(figPrefab);
@@ -118,7 +126,8 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        // insert code here to run when the game ends
+        mainTheme.Stop();
+        gameOverSound.Play();
     }
 
     void OnAnimationFinish()
