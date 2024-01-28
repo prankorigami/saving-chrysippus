@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float time;
 
     private float startTime;
-    [SerializeField] private int score;
+    [SerializeField] public static int score;
     [SerializeField] List<GameObject> minigamePrefs;
     [SerializeField] List<Sprite> minigameEnemies;
     [SerializeField] GameObject baseEnemy;
@@ -40,11 +41,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        score = 0;
         gameOver = false;
         startTime = time;
         minigameEnds.AddListener(OnMinigameEnd);
         animationEnd.AddListener(OnAnimationFinish);
         PickMinigame();
+        DontDestroyOnLoad(gameOverSound);
     }
 
     private void Update()
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviour
     {
         mainTheme.Stop();
         gameOverSound.Play();
+        SceneManager.LoadScene("Lose Screen");
     }
 
     void OnAnimationFinish()

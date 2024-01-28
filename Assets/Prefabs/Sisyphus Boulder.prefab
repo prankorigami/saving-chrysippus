@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3778c694fb9b5654681e24d58ccb2070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSprite: {fileID: 0}
+  backgroundSprite: {fileID: 5559583965388020463}
   timesToBeat:
   - 7
   - 5.5
