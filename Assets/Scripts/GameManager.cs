@@ -8,12 +8,19 @@ public class GameManager : MonoBehaviour
     public class MiniEndEvent : UnityEvent<bool> { }
     public static MiniEndEvent minigameEnds = new();
 
+    public static UnityEvent animationEnd = new();
+
     [SerializeField] private float time;
 
     private float startTime;
     [SerializeField] private int score;
     [SerializeField] List<GameObject> minigamePrefs;
+    [SerializeField] List<Sprite> minigameEnemies;
+    [SerializeField] GameObject baseEnemy;
+    int gamePicked = -1;
     GameObject currentMinigameObject;
+    GameObject newEnemy;
+    [SerializeField] GameObject background;
     MinigameController currentMinigame;
 
     [SerializeField] RectTransform timerBar;
@@ -23,10 +30,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject figPrefab;
     [SerializeField] Transform canvas;
 
+    int currentDifficulty = 0;
+    [SerializeField] List<int> difficultyBoundaries;
+
     private void Start()
     {
         startTime = time;
         minigameEnds.AddListener(OnMinigameEnd);
+        animationEnd.AddListener(OnAnimationFinish);
         PickMinigame();
     }
 
@@ -38,21 +49,23 @@ public class GameManager : MonoBehaviour
         // Win Condition
         if( time <= 0 )
         {
-            // currentMinigame.LoseGame();
+            currentMinigame.LoseGame();
         }
     }
 
     void PickMinigame()
     {
-        // Randomly choose a game from the list and instantiate it
+        // Randomly choose a game from the list
+        gamePicked = Random.Range(0, minigamePrefs.Count);
+
         // Play the sprite spawning animation to show the enemy approaching
-        StartCoroutine(WaitForAnimationToFinish(Random.Range(0, minigamePrefs.Count)));
+        background.GetComponent<Animator>().Play("ForwardMoveAnimation");
+        newEnemy = Instantiate(baseEnemy, new Vector3(0f, -0.69f, 0f), Quaternion.identity);
+        newEnemy.GetComponent<SpriteRenderer>().sprite = minigameEnemies[gamePicked];
     }
 
     void OnMinigameEnd( bool gameResult )
     {
-        Debug.Log(gameResult);
-
         // Change the Score based on the result of the game
         if(gameResult)
         {
@@ -62,12 +75,35 @@ public class GameManager : MonoBehaviour
             newFig.transform.SetParent(canvas);
             newFig.GetComponent<RectTransform>().anchoredPosition = figPlacementPosition;
             figPlacementPosition -= new Vector3(0, 10, 0);
+
+            if(currentDifficulty < difficultyBoundaries.Count && score > difficultyBoundaries[currentDifficulty])
+            {
+                currentDifficulty++;
+            }
+
+            switch(currentDifficulty)
+            {
+                case 0:
+                    time += 3f;
+                    break;
+                case 1:
+                    time += 2f;
+                    break;
+                case 2:
+                    time += 1f;
+                    break;
+            }
+        } 
+        else
+        {
+            time--;
         }
-        time += gameResult ? 1f : -1f;
 
         // Destroy the object(s) associated with the previous minigame
         Destroy(currentMinigameObject);
+        newEnemy.GetComponent<Animator>().Play("EnemyDie");
         currentMinigame = null;
+        gamePicked = -1;
 
         // Pick the next minigame if the game isnt done
         if ( time > 0 )
@@ -85,14 +121,12 @@ public class GameManager : MonoBehaviour
         // insert code here to run when the game ends
     }
 
-    IEnumerator WaitForAnimationToFinish(int gamePickedIdx)
+    void OnAnimationFinish()
     {
-        yield return new WaitForSeconds(2);
-
-        currentMinigameObject = Instantiate(minigamePrefs[gamePickedIdx]);
+        currentMinigameObject = Instantiate(minigamePrefs[gamePicked]);
         currentMinigame = currentMinigameObject.GetComponent<MinigameController>();
 
         // Start the game
-        currentMinigame.GameStart(0);
+        currentMinigame.GameStart(currentDifficulty);
     }
 }
