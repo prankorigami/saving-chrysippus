@@ -14,12 +14,14 @@ public class MinigameController : MonoBehaviour
     // Index corresponds to 'difficulty' provided.
     [SerializeField] private float[] timesToBeat;
     private float miniTimer;
+    private float startTimer;
 
     // Sets up any randomized aspects of the mini-game that might be
     // inconsistent with how the prefab spawns.
     public virtual void GameStart(int difficulty)
     {
         miniTimer = timesToBeat[difficulty];
+        startTimer = miniTimer;
     }
 
     // Runs primary game logic, though this can also be deferred to additional scripts.
@@ -35,4 +37,10 @@ public class MinigameController : MonoBehaviour
 
     // Tells the GameManager that this minigame was failed -- lose condition OR out of time.
     public void LoseGame() { GameManager.minigameEnds.Invoke(false); }
+
+    public void StopTimer() { miniTimer += 50000; }
+     
+    public float GetTimer() { return miniTimer; }
+
+    public float GetStartTimer() { return startTimer; }
 }
