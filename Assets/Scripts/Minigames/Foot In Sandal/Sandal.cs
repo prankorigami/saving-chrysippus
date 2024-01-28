@@ -7,10 +7,12 @@ public class Sandal : MonoBehaviour
     [SerializeField] private MinigameController controller;
     [SerializeField] GameObject bitches;
     [SerializeField] AudioSource vineBoom;
+    bool gameDone = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Feet" && !collision.gameObject.transform.parent.gameObject.GetComponent<FootMovement>().IsDragging())
+        if(!gameDone && collision.gameObject.tag == "Feet" && !collision.gameObject.transform.parent.gameObject.GetComponent<FootMovement>().IsDragging())
         {
+            gameDone = true;
             if(UnityEngine.Random.Range(0, 100) == 69)
             {
                 controller.StopTimer();
@@ -21,7 +23,10 @@ public class Sandal : MonoBehaviour
                 {
                     bitchestimer -= Time.deltaTime;
                 }
-                Application.Quit();
+                if(bitchestimer < 0)
+                {
+                    Application.Quit();
+                }
             } 
             else
             {
