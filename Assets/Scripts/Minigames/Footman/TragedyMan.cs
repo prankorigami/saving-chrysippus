@@ -11,6 +11,7 @@ public class TragedyMan : MonoBehaviour
     [SerializeField] public Animator footAnimator;
     [SerializeField] public GameObject feather;
     [SerializeField] public float movementspeed;
+    [SerializeField] public MinigameController controller;
 
     bool killed = false;
 
@@ -58,6 +59,7 @@ public class TragedyMan : MonoBehaviour
             footAnimator.SetBool("Alive", false);
             Destroy(feather);
             comedyAnimator.SetBool("SAD", true);
+            controller.StopTimer();
         }
     }
 

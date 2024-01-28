@@ -395,7 +395,9 @@ MonoBehaviour:
   - {fileID: 6783183339472124003, guid: 3934ee35646bc5645bdd99ad16ceff0d, type: 3}
   - {fileID: 6023541599744727599, guid: 5fd25c762f227ac4cb935623b27d2173, type: 3}
   - {fileID: 6783183339472124003, guid: 2236e59346a53c849ae255979d5b65df, type: 3}
+  - {fileID: 6783183339472124003, guid: 26583b161e9fc1a45b27c61408aa9dc2, type: 3}
   minigameEnemies:
+  - {fileID: 21300000, guid: 2d7fbd59780f6fb47b9ccbc967362854, type: 3}
   - {fileID: 21300000, guid: 2d7fbd59780f6fb47b9ccbc967362854, type: 3}
   - {fileID: 21300000, guid: 2d7fbd59780f6fb47b9ccbc967362854, type: 3}
   - {fileID: 21300000, guid: 2d7fbd59780f6fb47b9ccbc967362854, type: 3}

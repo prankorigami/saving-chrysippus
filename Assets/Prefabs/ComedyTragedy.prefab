@@ -172,6 +172,7 @@ MonoBehaviour:
   footAnimator: {fileID: 4987137869274691955}
   feather: {fileID: 5975217559006521298}
   movementspeed: 5
+  controller: {fileID: 1820316871531810385}
 --- !u!1 &757083724108603018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1056,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 5559583965388020463}
   timesToBeat:
-  - 30
+  - 10
+  - 7
+  - 5
 --- !u!1 &8025431210918597304
 GameObject:
   m_ObjectHideFlags: 0

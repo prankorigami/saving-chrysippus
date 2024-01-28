@@ -35,4 +35,6 @@ public class MinigameController : MonoBehaviour
 
     // Tells the GameManager that this minigame was failed -- lose condition OR out of time.
     public void LoseGame() { GameManager.minigameEnds.Invoke(false); }
+
+    public void StopTimer() { miniTimer += 50000; }
 }
