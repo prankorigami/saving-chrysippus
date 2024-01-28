@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 4792204210038572360}
+  pickup: {fileID: 0}
 --- !u!212 &7642900707871794644
 SpriteRenderer:
   m_ObjectHideFlags: 0

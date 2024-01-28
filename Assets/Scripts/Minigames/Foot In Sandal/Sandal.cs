@@ -11,7 +11,7 @@ public class Sandal : MonoBehaviour
     {
         if(collision.gameObject.tag == "Feet" && !collision.gameObject.transform.parent.gameObject.GetComponent<FootMovement>().IsDragging())
         {
-            if(Random.Range(0, 100) == 69)
+            if(UnityEngine.Random.Range(0, 100) == 69)
             {
                 controller.StopTimer();
                 bitches.SetActive(true);

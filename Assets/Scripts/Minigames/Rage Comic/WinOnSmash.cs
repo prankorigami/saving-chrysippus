@@ -6,9 +6,12 @@ using UnityEngine;
 public class WinOnSmash : MonoBehaviour
 {
     [SerializeField] private MinigameController controller;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioSource destory;
     Animator anim;
     private int punchCounter = 0;
     private bool lastLeft = false;
+    private bool over = false;
 
     void Start()
     {
@@ -21,9 +24,11 @@ public class WinOnSmash : MonoBehaviour
             HitSlab();
         if (Input.GetKeyDown("right") && lastLeft && punchCounter < 10)
             HitSlab();
-        if (punchCounter >= 10)
+        if (punchCounter >= 10 && !over)
         {
+            over = true;
             anim.Play("breakSlab");
+            destory.Play();
             controller.StopTimer();
         }
     }
@@ -33,6 +38,7 @@ public class WinOnSmash : MonoBehaviour
         anim.Play("hitSlab");
         lastLeft = !lastLeft;
         punchCounter++;
+        hit.Play();
     }
 
     public void GameEnd()
