@@ -13,15 +13,18 @@ public class WinOnCloseSpam : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
 
-    private void OnMouseClick()
+    void OnMouseOver()
     {
-        CloseSpam();
-        controller.StopTimer();
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.Play("closeTabSpam");
+            CloseSpam();
+        }
     }
 
     private void CloseSpam()
     {
-        anim.Play("closeSpam");
+        Destroy(gameObject);
     }
 
     public void GameEnd()

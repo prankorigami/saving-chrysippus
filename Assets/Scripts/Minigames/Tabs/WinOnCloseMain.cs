@@ -13,15 +13,20 @@ public class WinOnCloseMain : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
 
-    private void OnMouseClick()
+    void OnMouseOver()
     {
-        CloseSpam();
-        controller.StopTimer();
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.Play("closeTabMain");
+            CloseSpam();
+            controller.StopTimer();
+            GameEnd();
+        }
     }
 
     private void CloseSpam()
     {
-        anim.Play("closeMain");
+        Destroy(gameObject);
     }
         
 

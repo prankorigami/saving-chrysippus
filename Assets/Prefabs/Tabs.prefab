@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 5855213016652983399}
   - component: {fileID: 3443575815212302876}
   - component: {fileID: 6617907940132310384}
+  - component: {fileID: 3017619932537231578}
   m_Layer: 0
   m_Name: mainTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &590720351004281791
 Transform:
   m_ObjectHideFlags: 0
@@ -125,6 +126,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &3017619932537231578
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137205408377200150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cba8a46cbc9d76f4fb8b3005478e0100, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4115748162039606483
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +158,7 @@ GameObject:
   - component: {fileID: 2312479091178820446}
   - component: {fileID: 5674933991211777073}
   - component: {fileID: 7107857475336359216}
+  - component: {fileID: 8523465598155794290}
   m_Layer: 0
   m_Name: spamTab
   m_TagString: Untagged
@@ -152,7 +174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4115748162039606483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -250,6 +272,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &8523465598155794290
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115748162039606483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebb73534a0ac30440a7a88aba1e2d8ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8557534767332531805
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,5 +345,5 @@ MonoBehaviour:
   - 1
   spamTab: {fileID: 4115748162039606483}
   mainTab: {fileID: 2137205408377200150}
-  xBounds: {x: -5, y: 5}
-  yBounds: {x: -4, y: 4}
+  xBounds: {x: -2, y: 2}
+  yBounds: {x: -2, y: 2}
