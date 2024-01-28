@@ -188,6 +188,7 @@ MonoBehaviour:
   tomato_splat: {fileID: 21300000, guid: 905185140ddf495469a4759cc584ac49, type: 3}
   splat: {fileID: 8300000, guid: 3004eb653843c5847b453804b7cc9d9d, type: 3}
   wooosh: {fileID: 8300000, guid: c472c1b63dd89fa40a6722c8192899a8, type: 3}
+  game: {fileID: 0}
 --- !u!61 &1225804212914683845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -414,6 +415,7 @@ MonoBehaviour:
   tomato_splat: {fileID: 21300000, guid: 905185140ddf495469a4759cc584ac49, type: 3}
   splat: {fileID: 8300000, guid: 3004eb653843c5847b453804b7cc9d9d, type: 3}
   wooosh: {fileID: 8300000, guid: c472c1b63dd89fa40a6722c8192899a8, type: 3}
+  game: {fileID: 0}
 --- !u!61 &1785457948765502048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -640,6 +642,7 @@ MonoBehaviour:
   tomato_splat: {fileID: 21300000, guid: 905185140ddf495469a4759cc584ac49, type: 3}
   splat: {fileID: 8300000, guid: 3004eb653843c5847b453804b7cc9d9d, type: 3}
   wooosh: {fileID: 8300000, guid: c472c1b63dd89fa40a6722c8192899a8, type: 3}
+  game: {fileID: 0}
 --- !u!61 &4969427672490859397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -904,3 +907,5 @@ MonoBehaviour:
   - {fileID: 2626036031608259496}
   - {fileID: 4898825043292332009}
   - {fileID: 6047245326994693022}
+  jester: {fileID: 8300000, guid: bd91bb12350325b4eabc8695a361c67b, type: 3}
+  numTomatos: 0
