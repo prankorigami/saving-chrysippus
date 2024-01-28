@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject figPrefab;
     [SerializeField] Transform canvas;
 
+    int currentDifficulty = 0;
+    [SerializeField] List<int> difficultyBoundaries;
+
     private void Start()
     {
         startTime = time;
@@ -72,8 +75,29 @@ public class GameManager : MonoBehaviour
             newFig.transform.SetParent(canvas);
             newFig.GetComponent<RectTransform>().anchoredPosition = figPlacementPosition;
             figPlacementPosition -= new Vector3(0, 10, 0);
+
+            if(score > difficultyBoundaries[currentDifficulty])
+            {
+                currentDifficulty++;
+            }
+
+            switch(currentDifficulty)
+            {
+                case 0:
+                    time++;
+                    break;
+                case 1:
+                    time += 1.5f;
+                    break;
+                case 2:
+                    time += 2f;
+                    break;
+            }
+        } 
+        else
+        {
+            time--;
         }
-        time += gameResult ? 1f : -1f;
 
         // Destroy the object(s) associated with the previous minigame
         Destroy(currentMinigameObject);
@@ -103,6 +127,6 @@ public class GameManager : MonoBehaviour
         currentMinigame = currentMinigameObject.GetComponent<MinigameController>();
 
         // Start the game
-        currentMinigame.GameStart(0);
+        currentMinigame.GameStart(currentDifficulty);
     }
 }
