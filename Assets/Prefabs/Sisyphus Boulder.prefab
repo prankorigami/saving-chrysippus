@@ -597,8 +597,8 @@ MonoBehaviour:
   - 7
   - 5.5
   - 4
-  progDecayScale: 1
-  progIncrement: 0.5
+  progDecayScale: 0.7
+  progIncrement: 0.7
   progress: 3
   progGoal: 10
   arrowObjs:
