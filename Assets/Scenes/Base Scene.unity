@@ -392,7 +392,7 @@ MonoBehaviour:
   time: 60
   score: 0
   minigamePrefs:
-  - {fileID: 6783183339472124003, guid: 3934ee35646bc5645bdd99ad16ceff0d, type: 3}
+  - {fileID: 6783183339472124003, guid: ee4924e6549db5347901c508ed42173f, type: 3}
   timerBar: {fileID: 712516504}
   timerTransform: {fileID: 1097604146}
   figPlacementPosition: {x: 24, y: -24, z: 0}
