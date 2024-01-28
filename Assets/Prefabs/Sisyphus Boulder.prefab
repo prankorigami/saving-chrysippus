@@ -594,9 +594,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSprite: {fileID: 5559583965388020463}
   timesToBeat:
-  - 7
-  - 5.5
-  - 4
+  - 6.5
+  - 5
+  - 3.5
   progDecayScale: 0.7
   progIncrement: 0.7
   progress: 3
