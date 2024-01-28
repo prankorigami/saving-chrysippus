@@ -94,6 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4637868598427387088}
   - component: {fileID: 6630231968201733811}
+  - component: {fileID: 1963934866439961113}
+  - component: {fileID: 1225804212914683845}
   m_Layer: 0
   m_Name: Hand 1
   m_TagString: Untagged
@@ -168,6 +170,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1963934866439961113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626036031608259496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ca0320551d72a4b8698375f9c76b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand_alt: {fileID: 21300000, guid: c2aa123d12f42af4d9845911722ef579, type: 3}
+  tomatoPrefab: {fileID: 2423830324249718672, guid: 3afe68b9b645c774aba39ae71bdce8de, type: 3}
+--- !u!61 &1225804212914683845
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626036031608259496}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.42, y: 0.72}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.72}
+  m_EdgeRadius: 0
 --- !u!1 &4898825043292332009
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +220,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7408453506329915803}
   - component: {fileID: 8678149298191431549}
+  - component: {fileID: 1744553426308329317}
+  - component: {fileID: 1785457948765502048}
   m_Layer: 0
   m_Name: Hand 2
   m_TagString: Untagged
@@ -252,6 +296,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1744553426308329317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898825043292332009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ca0320551d72a4b8698375f9c76b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand_alt: {fileID: 21300000, guid: c2aa123d12f42af4d9845911722ef579, type: 3}
+  tomatoPrefab: {fileID: 2423830324249718672, guid: 3afe68b9b645c774aba39ae71bdce8de, type: 3}
+--- !u!61 &1785457948765502048
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898825043292332009}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.42, y: 0.72}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.72}
+  m_EdgeRadius: 0
 --- !u!1 &6047245326994693022
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +346,8 @@ GameObject:
   m_Component:
   - component: {fileID: 303951928181649417}
   - component: {fileID: 2800565606233817338}
+  - component: {fileID: 272994597630874726}
+  - component: {fileID: 4969427672490859397}
   m_Layer: 0
   m_Name: Hand 3
   m_TagString: Untagged
@@ -336,6 +422,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &272994597630874726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047245326994693022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ca0320551d72a4b8698375f9c76b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand_alt: {fileID: 21300000, guid: c2aa123d12f42af4d9845911722ef579, type: 3}
+  tomatoPrefab: {fileID: 2423830324249718672, guid: 3afe68b9b645c774aba39ae71bdce8de, type: 3}
+--- !u!61 &4969427672490859397
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047245326994693022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.42, y: 0.72}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.72}
+  m_EdgeRadius: 0
 --- !u!1 &6488145710360130346
 GameObject:
   m_ObjectHideFlags: 0
